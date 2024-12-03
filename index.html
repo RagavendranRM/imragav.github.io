@@ -165,7 +165,7 @@ Let's connect and explore how I can bring my enthusiasm and technical expertise 
 												<i  class="fa fa-facebook" aria-hidden="true"></i>
 											</a>
 										</li><!-- / li -->
-										<li>
+										<!--<li>
 											<a href="#">
 												<i  class="fa fa-dribbble" aria-hidden="true"></i>
 											</a>
@@ -358,7 +358,7 @@ Let's connect and explore how I can bring my enthusiasm and technical expertise 
 												   
 											   </div>
 											</div>
-											<h3>80%</h3>	
+											<h3>90%</h3>	
 										</div>
 									</div><!-- /.barWrapper -->
 									<div class="barWrapper">
@@ -1031,6 +1031,200 @@ xray.
 
 		</section><!--/.contact-->
 		<!--contact end -->
+<!-- Chatbot HTML -->
+<div id="chatbot-container">
+    <button id="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+    <div id="chatbot-window" class="hidden">
+        <div id="chatbot-header">
+            <h3>Portfolio Chatbot</h3>
+            <button id="chatbot-close" onclick="toggleChatbot()">×</button>
+        </div>
+        <div id="chatbot-content">
+            <div id="chatbot-messages"></div>
+            <div id="chatbot-input-container">
+                <input
+                    type="text"
+                    id="chatbot-input"
+                    placeholder="Ask me anything..."
+                    onkeydown="if(event.key === 'Enter') sendChatbotMessage()"
+                />
+                <button id="chatbot-send" onclick="sendChatbotMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quote Pop-up -->
+<div id="quote-popup">
+    <p id="quote-text"></p>
+    <button id="quote-close" onclick="closeQuotePopup()">Got it!</button>
+</div>
+
+<!-- Styles -->
+<style>
+    /* Chatbot Styles */
+    #chatbot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+    #chatbot-toggle {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    #chatbot-window {
+        width: 300px;
+        height: 400px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    #chatbot-window.hidden {
+        display: none;
+    }
+    #chatbot-header {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border-radius: 8px 8px 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #chatbot-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    #chatbot-messages {
+        flex: 1;
+        padding: 10px;
+        overflow-y: auto;
+    }
+    #chatbot-input-container {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+    }
+    #chatbot-input {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    #chatbot-send {
+        margin-left: 5px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    /* Quote Pop-up Styles */
+    #quote-popup {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        display: none;
+        z-index: 1000;
+    }
+    #quote-popup p {
+        margin: 0;
+        font-size: 1rem;
+        color: #333;
+    }
+    #quote-popup button {
+        margin-top: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    // Quotes for Pop-up
+    const quotes = [
+        "The best way to predict the future is to create it.",
+        "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+        "Your time is limited, so don’t waste it living someone else’s life.",
+        "Strive not to be a success, but rather to be of value.",
+    ];
+
+    // Show Random Quote on Load
+    window.onload = function () {
+        const quoteText = document.getElementById("quote-text");
+        quoteText.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+        document.getElementById("quote-popup").style.display = "block";
+    };
+
+    // Close Quote Pop-up
+    function closeQuotePopup() {
+        document.getElementById("quote-popup").style.display = "none";
+    }
+
+    // Toggle Chatbot
+    function toggleChatbot() {
+        const chatbotWindow = document.getElementById("chatbot-window");
+        chatbotWindow.classList.toggle("hidden");
+    }
+
+    // Chatbot Responses
+    function sendChatbotMessage() {
+        const inputField = document.getElementById("chatbot-input");
+        const userMessage = inputField.value.trim();
+        if (!userMessage) return;
+
+        const chatbotMessages = document.getElementById("chatbot-messages");
+
+        // Add user message to chat
+        const userMessageDiv = document.createElement("div");
+        userMessageDiv.textContent = `You: ${userMessage}`;
+        userMessageDiv.style.marginBottom = "10px";
+        chatbotMessages.appendChild(userMessageDiv);
+
+        // Generate chatbot response
+        const responseDiv = document.createElement("div");
+        responseDiv.style.color = "blue";
+        setTimeout(() => {
+            let response = "I’m not sure how to answer that.";
+            if (userMessage.toLowerCase().includes("portfolio")) {
+                response = "This is a portfolio showcasing my skills, projects, and publications.";
+            } else if (userMessage.toLowerCase().includes("publication")) {
+                response = "You can find my publications under the 'Publications and Papers' section.";
+            }
+            responseDiv.textContent = `Bot: ${response}`;
+            chatbotMessages.appendChild(responseDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }, 500);
+
+        inputField.value = "";
+    }
+</script>
 
 		<!--footer-copyright start-->
 		<footer id="footer-copyright" class="footer-copyright">
