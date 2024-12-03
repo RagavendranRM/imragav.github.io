@@ -808,59 +808,87 @@ xray.
 		</section><!--/.portfolio-->
 		<!--portfolio end -->
 <!--profiles start -->
-<section id="profiles2" class="profiles">
-	<div class="profiles-details">
-		<div class="section-heading text-center">
-			<h2>Publications and Papers</h2>
-		</div>
-		<div class="container">
-			<div class="profiles-content">
-				<div class="row">
-					<div class="col-sm-3">
-						<div class="single-profile">
-							<div class="profile-txt">
-								<a href="https://doi.org/10.1109/iTechSECOM59882.2023.10435016"><!--<i class="flaticon-themeforest"></i></a>-->
-								<div class="profile-icon-name">
-									Automated Classification of Chest Image Using Deep Learning</div>
-							</div>
-							<div class="single-profile-overlay">
-								<div class="profile-txt">
-									<!--<a href=""><i class="flaticon-themeforest"></i></a>-->
-									<div class="profile-icon-name">Automated Classification of Chest Image Using Deep Learning</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="single-profile">
-							<div class="profile-txt">
-								<a href="https://drive.google.com/drive/folders/1jrrr7mBvKrtl9JMMj1eBpy9bfbgsQ8yA?usp=sharing"><!--<i class="flaticon-dribbble"></i></a>-->
-								<div class="profile-icon-name">ALU and Multiplexer based AI Accelerator Design</div>
-							</div>
-							<div class="single-profile-overlay">
-								<div class="profile-txt">
-									<!--<a href=""><i class="flaticon-dribbble"></i></a>-->
-									<div class="profile-icon-name">ALU and Multiplexer based AI Accelerator Design</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="single-profile">
-							<div class="profile-txt">
-								<a href="https://drive.google.com/drive/folders/1jrrr7mBvKrtl9JMMj1eBpy9bfbgsQ8yA?usp=sharing"><!--<i class="flaticon-behance-logo"></i></a>-->
-								<div class="profile-icon-name">Power-Efficient Multiplier Optimisation</div>
-							</div>
-							<div class="single-profile-overlay">
-								<div class="profile-txt">
-									<!--<a href=""><i class="flaticon-behance-logo"></i></a>-->
-									<div class="profile-icon-name">Power-Efficient Multiplier Optimisation</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-	</div>
+<section id="publications" class="publications">
+    <div class="container">
+        <div class="section-heading text-center">
+            <h2>Publications and Papers</h2>
+        </div>
+        <div class="row">
+            <!-- Publication 1 -->
+            <div class="col-md-4">
+                <div class="publication-card">
+                    <a href="https://doi.org/10.1109/iTechSECOM59882.2023.10435016" target="_blank" rel="noopener noreferrer">
+                        <div class="card-content">
+                            <h3>Automated Classification of Chest Image Using Deep Learning</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- Publication 2 -->
+            <div class="col-md-4">
+                <div class="publication-card">
+                    <a href="https://drive.google.com/drive/folders/1jrrr7mBvKrtl9JMMj1eBpy9bfbgsQ8yA?usp=sharing" target="_blank" rel="noopener noreferrer">
+                        <div class="card-content">
+                            <h3>ALU and Multiplexer-based AI Accelerator Design</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- Publication 3 -->
+            <div class="col-md-4">
+                <div class="publication-card">
+                    <a href="https://drive.google.com/drive/folders/1jrrr7mBvKrtl9JMMj1eBpy9bfbgsQ8yA?usp=sharing" target="_blank" rel="noopener noreferrer">
+                        <div class="card-content">
+                            <h3>Power-Efficient Multiplier Optimisation</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .publications {
+        padding: 50px 15px;
+        background-color: #f9f9f9;
+    }
+    .section-heading h2 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 30px;
+    }
+    .publication-card {
+        background: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        margin-bottom: 20px;
+    }
+    .publication-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .publication-card a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        padding: 20px;
+    }
+    .publication-card h3 {
+        font-size: 1.2rem;
+        color: #007bff;
+        margin: 0;
+        line-height: 1.4;
+        text-align: center;
+    }
+    @media (max-width: 768px) {
+        .publication-card h3 {
+            font-size: 1rem;
+        }
+    }
+</style>
 
 <!--
 		
